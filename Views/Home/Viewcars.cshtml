@@ -1,0 +1,40 @@
+@model List<DealershipApp.Controllers.Car>
+
+<div class="container">
+    <h2>Lista Mașinilor</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>An Fabricație</th>
+            <th>Kilometraj</th>
+            <th>Preț</th>
+            <th>Stare</th>
+            <th>Model</th>
+            <th>Marcă</th>
+            <th>Acțiuni</th>
+        </tr>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.IDMasina</td>
+                <td>@car.AnFabricatie</td>
+                <td>@car.Kilometraj</td>
+                <td>@car.Pret</td>
+                <td>@car.Stare</td>
+                <td>@car.Model</td>
+                <td>@car.Marca</td>
+                <td>
+                    <!-- Buton Șterge -->
+                    <form method="post" action="/Home/DeleteCar" style="display: inline;">
+                        <input type="hidden" name="id" value="@car.IDMasina" />
+                        <button type="submit" class="delete-button">Șterge</button>
+                    </form>
+
+                    <!-- Link Editează -->
+                    <a href="/Home/EditCar?id=@car.IDMasina" class="edit-button">Editează</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <button class="return-button" onclick="window.location.href='/Home/MainMenu'">Return to Main Menu</button>
+</div>

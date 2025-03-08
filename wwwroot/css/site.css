@@ -1,0 +1,126 @@
+/* Stiluri generale pentru corpul paginii */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2d2f33; /* Fundal închis */
+  color: #f0f0f0; /* Text alb pentru un contrast frumos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Stiluri pentru container */
+.container {
+  background-color: #3b3f46; /* Fundal ușor mai deschis decât corpul paginii */
+  color: #ffffff; /* Text alb */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  overflow-x: auto; /* Permite derularea orizontală dacă este necesar */
+}
+
+/* Stiluri pentru titluri */
+h1, h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Stiluri pentru formular */
+form {
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #c5c8cd; /* Text gri deschis */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #5c616a; /* Fundal pentru input */
+  color: #f0f0f0; /* Text alb */
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #1a73e8; /* Albastru vibrant */
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1666c5; /* Albastru mai închis la hover */
+}
+
+/* Stiluri pentru link-uri */
+a {
+  color: #1a73e8; /* Albastru vibrant */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Stiluri pentru tabel */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Distanță între rânduri */
+  overflow: hidden; /* Ascunde conținutul care depășește */
+}
+
+th, td {
+  padding: 12px 20px; /* Distanță internă pentru celule */
+  text-align: left;
+  color: #f0f0f0; /* Culoarea textului */
+}
+
+th {
+  background-color: #444951; /* Fundal pentru antet */
+  font-weight: bold;
+}
+
+td {
+  background-color: #3b3f46; /* Fundal pentru celulele de date */
+  border-radius: 5px; /* Colțuri rotunjite pentru celulele de date */
+  white-space: normal; /* Permite textului să fie afișat pe mai multe linii */
+}
+.delete-button {
+  background-color: #e74c3c; /* Roșu pentru ștergere */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c0392b; /* Roșu mai închis la hover */
+}
+
+.edit-button {
+  background-color: #3498db; /* Albastru pentru editare */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.edit-button:hover {
+  background-color: #2980b9; /* Albastru mai închis la hover */
+}

@@ -1,0 +1,40 @@
+@model List<DealershipApp.Controllers.Sale>
+
+<div class="container">
+    <h2>Lista Vânzărilor</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Data Vânzării</th>
+            <th>Preț Final</th>
+            <th>Client</th>
+            <th>Marcă</th>
+            <th>Model</th>
+            <th>Angajat</th>
+            <th>Acțiuni</th>
+        </tr>
+        @foreach (var sale in Model)
+        {
+            <tr>
+                <td>@sale.IDVanzare</td>
+                <td>@sale.DataVanzare</td>
+                <td>@sale.PretFinal</td>
+                <td>@sale.Client</td>
+                <td>@sale.Marca</td>
+                <td>@sale.Model</td>
+                <td>@sale.Angajat</td>
+                <td>
+                    <!-- Buton Șterge -->
+                    <form method="post" action="/Home/DeleteSale" style="display: inline;">
+                        <input type="hidden" name="id" value="@sale.IDVanzare" />
+                        <button type="submit" class="delete-button">Șterge</button>
+                    </form>
+
+                    <!-- Link Editează -->
+                    <a href="/Home/EditSale?id=@sale.IDVanzare" class="edit-button">Editează</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <button class="return-button" onclick="window.location.href='/Home/MainMenu'">Return to Main Menu</button>
+</div>

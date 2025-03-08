@@ -1,0 +1,35 @@
+@model DealershipApp.Controllers.Car
+@{
+    var models = ViewBag.Models as List<DealershipApp.Controllers.Model>;
+}
+
+<div class="container">
+    <h2>Adaugă Mașină</h2>
+    <form method="post" action="/Home/AddCar">
+        <label for="AnFabricatie">An Fabricație:</label>
+        <input type="number" id="AnFabricatie" name="AnFabricatie" required><br>
+
+        <label for="Kilometraj">Kilometraj:</label>
+        <input type="number" id="Kilometraj" name="Kilometraj" required><br>
+
+        <label for="Pret">Preț:</label>
+        <input type="text" id="Pret" name="Pret" required><br>
+
+        <label for="Stare">Stare:</label>
+        <input type="text" id="Stare" name="Stare" required><br>
+
+        <label for="selectedModel">Model:</label>
+        <select id="selectedModel" name="selectedModel" required>
+            <option value="">Selectează un model</option>
+            @if (models != null)
+            {
+                foreach (var item in models) // Schimbăm 'model' în 'item' pentru a evita conflictul
+                {
+                    <option value="@item.Denumire">@item.Denumire</option>
+                }
+            }
+        </select><br>
+
+        <button type="submit">Adaugă</button>
+    </form>
+</div>
