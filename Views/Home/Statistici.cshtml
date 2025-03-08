@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Statistici</h2>
+
+    <h3>1. Total Vânzări pe An</h3>
+    <form method="get" action="/Home/Statistici">
+        <label for="an">An:</label>
+        <input type="number" id="an" name="an" required>
+        <button type="submit">Afișează</button>
+    </form>
+    @if (ViewBag.TotalVanzari != null)
+    {
+        <p>Total vânzări în anul @ViewBag.An: @ViewBag.TotalVanzari</p>
+    }
+
+    <h3>2. Mărci cu numărul de modele care au preț mediu peste media tuturor mașinilor</h3>
+    <table>
+        <tr>
+            <th>Marcă</th>
+            <th>Număr Modele</th>
+        </tr>
+        @foreach (var marca in ViewBag.MarciModele)
+        {
+            <tr>
+                <td>@marca.Marca</td>
+                <td>@marca.NrModele</td>
+            </tr>
+        }
+    </table>
+
+    <h3>3. Mașinile cu cel mai mare preț vândut</h3>
+    <table>
+        <tr>
+            <th>ID Mașină</th>
+            <th>Model</th>
+            <th>Marcă</th>
+            <th>Preț</th>
+        </tr>
+        @foreach (var masina in ViewBag.MasiniScumpe)
+        {
+            <tr>
+                <td>@masina.IDMasina</td>
+                <td>@masina.Model</td>
+                <td>@masina.Marca</td>
+                <td>@masina.Pret</td>
+            </tr>
+        }
+    </table>
+    <button class="return-button" onclick="window.location.href='/Home/MainMenu'">Return to Main Menu</button>
+</div>

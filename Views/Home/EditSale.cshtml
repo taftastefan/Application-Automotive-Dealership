@@ -1,0 +1,78 @@
+@model DealershipApp.Controllers.Sale
+@{
+    var clients = ViewBag.Clients as List<DealershipApp.Controllers.Client>;
+    var cars = ViewBag.Cars as List<DealershipApp.Controllers.Car>;
+    var employees = ViewBag.Employees as List<DealershipApp.Controllers.Employee>;
+}
+
+<div class="container">
+    <h2>Editează Vânzare</h2>
+    <form method="post" action="/Home/EditSale">
+        <input type="hidden" name="IDVanzare" value="@Model.IDVanzare">
+
+        <label for="DataVanzare">Data Vânzare:</label>
+        <input type="date" id="DataVanzare" name="DataVanzare" value="@Model.DataVanzare.ToString("yyyy-MM-dd")" required><br>
+
+        <label for="PretFinal">Preț Final:</label>
+        <input type="text" id="PretFinal" name="PretFinal" value="@Model.PretFinal" required><br>
+
+        <label for="selectedClient">Client:</label>
+        <select id="selectedClient" name="selectedClient" required>
+            <option value="">Selectează un client</option>
+            @if (clients != null)
+            {
+                foreach (var client in clients)
+                {
+                    if (client.Nume == Model.Client)
+                    {
+                        <option value="@client.Nume" selected>@client.Nume</option>
+                    }
+                    else
+                    {
+                        <option value="@client.Nume">@client.Nume</option>
+                    }
+                }
+            }
+        </select><br>
+
+        <label for="selectedCar">Mașină:</label>
+        <select id="selectedCar" name="selectedCar" required>
+            <option value="">Selectează o mașină</option>
+            @if (cars != null)
+            {
+                foreach (var car in cars)
+                {
+                    if (car.Model == Model.Model)
+                    {
+                        <option value="@car.Model" selected>@car.Model</option>
+                    }
+                    else
+                    {
+                        <option value="@car.Model">@car.Model</option>
+                    }
+                }
+            }
+        </select><br>
+
+        <label for="selectedEmployee">Angajat:</label>
+        <select id="selectedEmployee" name="selectedEmployee" required>
+            <option value="">Selectează un angajat</option>
+            @if (employees != null)
+            {
+                foreach (var employee in employees)
+                {
+                    if (employee.Nume == Model.Angajat)
+                    {
+                        <option value="@employee.Nume" selected>@employee.Nume</option>
+                    }
+                    else
+                    {
+                        <option value="@employee.Nume">@employee.Nume</option>
+                    }
+                }
+            }
+        </select><br>
+
+        <button type="submit">Salvează</button>
+    </form>
+</div>

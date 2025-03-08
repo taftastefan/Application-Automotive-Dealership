@@ -1,0 +1,36 @@
+@model List<DealershipApp.Controllers.Client>
+
+<div class="container">
+    <h2>Lista Clienților</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nume</th>
+            <th>Prenume</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Acțiuni</th>
+        </tr>
+        @foreach (var client in Model)
+        {
+            <tr>
+                <td>@client.IDClient</td>
+                <td>@client.Nume</td>
+                <td>@client.Prenume</td>
+                <td>@client.Email</td>
+                <td>@client.Telefon</td>
+                <td>
+                    <!-- Buton Șterge -->
+                    <form method="post" action="/Home/DeleteClient" style="display: inline;">
+                        <input type="hidden" name="id" value="@client.IDClient" />
+                        <button type="submit" class="delete-button">Șterge</button>
+                    </form>
+
+                    <!-- Link Editează -->
+                    <a href="/Home/EditClient?id=@client.IDClient" class="edit-button">Editează</a>
+                </td>
+            </tr>
+        }
+    </table>
+    <button class="return-button" onclick="window.location.href='/Home/MainMenu'">Return to Main Menu</button>
+</div>

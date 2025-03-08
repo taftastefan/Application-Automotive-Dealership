@@ -1,0 +1,55 @@
+@model DealershipApp.Controllers.Sale
+@{
+    var clients = ViewBag.Clients as List<DealershipApp.Controllers.Client>;
+    var cars = ViewBag.Cars as List<DealershipApp.Controllers.Car>;
+    var employees = ViewBag.Employees as List<DealershipApp.Controllers.Employee>;
+}
+
+<div class="container">
+    <h2>Adaugă Vânzare</h2>
+    <form method="post" action="/Home/AddSale">
+        <label for="DataVanzare">Data Vânzare:</label>
+        <input type="date" id="DataVanzare" name="DataVanzare" required><br>
+
+        <label for="PretFinal">Preț Final:</label>
+        <input type="text" id="PretFinal" name="PretFinal" required><br>
+
+        <label for="selectedClient">Client:</label>
+        <select id="selectedClient" name="selectedClient" required>
+            <option value="">Selectează un client</option>
+            @if (clients != null)
+            {
+                foreach (var client in clients)
+                {
+                    <option value="@client.Nume">@client.Nume</option>
+                }
+            }
+        </select><br>
+
+        <label for="selectedCar">Mașină:</label>
+        <select id="selectedCar" name="selectedCar" required>
+            <option value="">Selectează o mașină</option>
+            @if (cars != null)
+            {
+                foreach (var car in cars)
+                {
+                    <option value="@car.Model">@car.Model</option>
+                }
+            }
+        </select><br>
+
+        <label for="selectedEmployee">Angajat:</label>
+        <select id="selectedEmployee" name="selectedEmployee" required>
+            <option value="">Selectează un angajat</option>
+            @if (employees != null)
+            {
+                foreach (var employee in employees)
+                {
+                    <option value="@employee.Nume">@employee.Nume</option>
+                }
+            }
+        </select><br>
+
+        <button type="submit">Adaugă</button>
+    </form>
+</div>
